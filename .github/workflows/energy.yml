@@ -12,11 +12,21 @@ jobs:
     steps:
       - name: Run SMP
         run: |
-          curl -L "https://hn03.mycafe24.com/api/smp_cron.php?token=golde"
+          curl -L \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36" \
+            -H "Accept: application/json,text/html,*/*" \
+            -H "Referer: https://hn03.mycafe24.com/" \
+            -c cookies.txt -b cookies.txt \
+            "https://hn03.mycafe24.com/api/smp_cron.php?token=golde"
 
       - name: Wait
         run: sleep 10
 
       - name: Run REC
         run: |
-          curl -L "https://hn03.mycafe24.com/api/rec_cron.php?token=golde"
+          curl -L \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36" \
+            -H "Accept: application/json,text/html,*/*" \
+            -H "Referer: https://hn03.mycafe24.com/" \
+            -c cookies.txt -b cookies.txt \
+            "https://hn03.mycafe24.com/api/rec_cron.php?token=golde"
